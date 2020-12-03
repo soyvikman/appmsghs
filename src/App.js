@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import {Fragment} from "react";
+import "antd/dist/antd.css";
+import "./index.css"
+import Inicial from "./components/inicial";
+import {Route, Switch} from "react-router-dom";
+import Mensajes from "./components/mensajes"
+import Bienvenida from "./components/bienvenida";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Fragment>
+          <Switch>
+              <Route path="/" component={Bienvenida} exact/>
+              <Route path="/login" component={Inicial} exact/>
+              <Route path="/mensajes" component={Mensajes} exact/>
+          </Switch>
+      </Fragment>
   );
 }
 
